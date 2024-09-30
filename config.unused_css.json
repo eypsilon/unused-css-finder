@@ -1,0 +1,19 @@
+{
+    "cssDir": "/path/to/css",
+    "srcDir": "/path/to/components",
+    "extendedMode": "true",
+    "outputMode": "json",
+    "ignoreSelectors": [],
+    "ignoreFiles": [],
+    "extensions": {
+        "css": [
+            "css",
+            "scss"
+        ],
+        "source": [
+            "vue",
+            "js",
+            "twig"
+        ]
+    }
+}

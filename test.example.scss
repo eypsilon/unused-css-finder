@@ -1,0 +1,71 @@
+// Original file: around 1000 lines
+// Additionally around 500 lines in other chunks
+// Added the whole tree below to a chunk .scss file somewhere deep in a project directory
+//
+// Every selector i additionally added for test reasons was found and listed in unused selectors. The resulting list is
+// an unordered list with the names of selectors found. Removing unused selectors is up to you. BTW, 80-90% of the matches
+// in 'Unused CSS classes' seems completely plausible. I say "seems" beacuse I don't think that i will count them manually, so.
+
+.dom-tree-example { // found
+    .totally-unused { // found
+        color: red;
+    }
+    .fel-grid {
+        .sw-grid-row,
+        .sw-grid__cell-content {
+            // ...
+            .add-generic { // found
+                .more-unused { // found
+                    color: blue;
+                }
+            }
+            &:last-child {
+                .catch-me-if-you-can { // gotcha
+                    color: transparent;
+                }
+            }
+        }
+    }
+    .fel-store-wrapper {
+        .mt-banner {
+            // ...
+            .hiiden-somewhere-here { // found
+                border: 0;
+            }
+        }
+    }
+}
+
+// ~$ GetUnusedCss /var/www/.../project_dir/unused_css.json
+// ---------------------------------
+//   Selectors total:   321
+//   Unused total:      90
+//   Searched in files: 38 [vue, js, twig]
+//   CSS files total:   9 [css, scss]
+// ---------------------------------
+
+// Unused CSS classes:
+//   .fel-box-divider
+//   .fel-inline-skeleton-bar
+//   ... a lot of unused selectors here
+//   .dom-tree-example
+//   .totally-unused
+//   .add-generic
+//   .more-unused
+//   .catch-me-if-you-can
+//   .hiiden-somewhere-here
+
+
+// Test within the Shopware framework, that is build on Symfony Flex (twig, scss).
+
+// {
+//     "cssDir": "/project_dir/vendor/shopware/storefront/Resources/app/storefront/src/scss",
+//     "srcDir": "/project_dir/vendor/shopware/storefront/Resources/views/storefront"
+// }
+
+// ---------------------------------
+//   Selectors total:   778
+//   Unused total:      189
+//   Searched in files: 302 [vue, js, twig]
+//   CSS files total:   132 [css, scss]
+// ---------------------------------
